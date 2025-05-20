@@ -11,49 +11,54 @@ footer: Node.js Global Summit 2025
 
 # **Next-Gen Microservice Gateways: Real-Time Forwarding with Bun**
 
-Seyyed Ali Mohammadiyeh (Max Base)
-
-Node.js Global Summit 25 - May 20 2025
-
----
-
-# **About me**
-
-**Seyyed Ali Mohammadiyeh (Max Base)**
-
-Open-source Maintainer, GitHub
-Senior Software Engineer
-CTO, asrez
-
-maxbasecode@gmail.com
+Seyyed Ali Mohammadiyeh (Max Base)  
+Node.js Global Summit 25 - May 20, 2025
 
 ---
 
-# **About me**
+# **About Me**
 
-**Seyyed Ali Mohammadiyeh (Max Base)**
-
-- **GitHub**: [https://github.com/basemax](https://github.com/basemax)
-- **Experience**: Over 10 years in software development and programming
-- **Background**: Pure-mathematics and applied mathematics, with research experience
+**Seyyed Ali Mohammadiyeh (Max Base)**  
+Open-source Maintainer, GitHub  
+Senior Software Engineer  
+CTO, asrez  
+📧 maxbasecode@gmail.com
 
 ---
 
-# "Next-Gen Microservice Gateways: Real-Time Forwarding with Bun"
+# **Experience**
 
-Explore how Bun and TypeScript can be combined to build a lightning-fast, real-time gateway that forwards incoming requests to microservices based on live context. Learn how this modern architecture improves performance, simplifies routing logic, and reduces latency in microservice communication.
+- 👨‍💻 GitHub: [https://github.com/basemax](https://github.com/basemax)  
+- 🧠 10+ years of experience in software development  
+- 🎓 Background in pure and applied mathematics with research experience  
 
-In today's microservice architectures, latency and scalability remain critical challenges, especially when handling live, dynamic routing of client requests. Traditional solutions like NGINX or Express-based proxies often introduce bottlenecks or complexity.
-This session presents a high-performance gateway built with Bun and TypeScript, designed to forward HTTP requests in real time to sub-projects or microservices based on context, headers, or routing rules. We’ll dive into how Bun’s speed and native TypeScript support make it ideal for this task, and demonstrate a working use case of live request forwarding across multiple services — with benchmarks, architecture, and lessons learned.
-Whether you're scaling a platform or designing your next startup backend, this session will show how to rethink your gateway layer using modern tools.
+---
 
-1. Learn how to design and implement a real-time gateway using Bun + TypeScript that efficiently forwards requests to microservices with minimal latency.
+# **Session Overview**
 
-2. Discover how Bun can replace traditional reverse proxies and Node.js-based routers in microservice environments for better performance.
+Explore how **Bun** and **TypeScript** enable the creation of a high-performance, real-time gateway that routes incoming HTTP requests to the appropriate microservices.
 
-## Getting start
+- Why traditional reverse proxies (like NGINX or Express) fall short in dynamic routing scenarios.
+- How Bun offers minimal latency, simplified logic, and better scalability.
 
-```
+This talk includes:  
+✅ Real-world architecture & benchmarks  
+✅ Code examples  
+✅ Lessons from production
+
+---
+
+# **Goals of This Talk**
+
+1. Learn to build a real-time microservice gateway using **Bun + TypeScript**
+2. Discover how **Bun** can outperform Express/NGINX in dynamic routing
+3. Understand live request forwarding with minimal latency
+
+---
+
+# **Getting Started with Bun**
+
+```bash
 $ bun init
 
 ✓ Select a project template: Blank
@@ -63,34 +68,38 @@ $ bun init
  + tsconfig.json (for editor autocomplete)
 
 To get started, run:
-
     bun run index.ts
 ```
 
-```
-$ cat index.ts
+```ts
+// index.ts
 console.log("Hello via Bun!");
 ```
 
-```
+```bash
 $ bun run index.ts
 Hello via Bun!
 ```
 
-## Bun
+---
 
-Why Bun?
-What is Bun?
+# **Why Bun?**
 
-We are using Bun serve, not express, nestjs, etc.
-Because Bun is really fast and quick and can serve many more requests in one second.
+✅ Native HTTP server (no need for Express or external frameworks)  
+✅ Written in TypeScript  
+✅ Built-in routing based on URL, headers, or tokens  
+✅ Blazing fast  
+✅ Zero dependencies
 
-No need to include any libs, if you are using Bun, internally you can use network and serve library.
+**Downsides**:  
+⚠️ Type checking and runtime validation in TypeScript is still maturing.  
+⚠️ Limited ecosystem maturity compared to Node.js
 
-Just use `Bun.serve`.
+---
 
-One example:
-```
+# **Using Bun.serve()**
+
+```ts
 const server = Bun.serve({
   port: 9999,
   fetch(req) {
@@ -99,71 +108,68 @@ const server = Bun.serve({
 });
 ```
 
-Everytime someone send a request to your IP and Port, fetch() function will be executed. you will receive the details of the request in `req` variable, feel free to explore more and console.log that variable.
+- Every incoming request triggers the `fetch()` function.
+- You can access request details through the `req` object.
 
-For more - If you want to get request url and details, you can use `new URL()` to parse `req.url`.
+---
 
-```
+# **Accessing Request Details**
+
+```ts
 const server = Bun.serve({
   port: 9999,
   fetch(req) {
-    const ur = newl URL(req.url);
+    const url = new URL(req.url);
     console.log(url);
     return new Response("Not Found", { status: 404 });
   },
 });
 ```
 
-Output of `req` is like this:
+Example request object:
 
-```
-Request (0 KB) {
+```ts
+Request {
   method: "GET",
   url: "http://localhost:9999/",
   headers: Headers {
     "host": "localhost:9999",
-    "connection": "keep-alive",
-    "cache-control": "max-age=0",
-    "upgrade-insecure-requests": "1",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-dest": "document",
-    "accept-encoding": "gzip, deflate, br, zstd",
-    "accept-language": "en-US,en;q=0.9,fa;q=0.8,it;q=0.7",
-    "cookie": "_pk_id.1.1fff=85d6240db28b6e81.1743525621.; PHPSESSID=p8arc5lojukmbb9hg27oqfbj7p",
-    "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
-    "sec-fetch-site": "none",
-    "sec-fetch-user": "?1",
+    "user-agent": "...",
+    ...
   }
 }
 ```
 
-So main values are:
+----
 
-- req.method
-- req.url
-- req.headers
+Key values to use:
 
-We can analyse and parse req.url into sub values, so in this case: Output of `newl URL(req.url)` is:
+- `req.method`
+- `req.url`
+- `req.headers`
 
-```
+# **Parsed URL Object**
+
+Output of `new URL(req.url)`:
+
+```ts
 URL {
   href: "http://localhost:9999/favicon.ico",
   origin: "http://localhost:9999",
-  protocol: "http:",
-  username: "",
-  password: "",
-  host: "localhost:9999",
-  hostname: "localhost",
-  port: "9999",
   pathname: "/favicon.ico",
-  hash: "",
-  search: "",
-  searchParams: URLSearchParams {},
-  toJSON: [Function: toJSON],
-  toString: [Function: toString],
+  searchParams: URLSearchParams {}
 }
 ```
+
+---
+
+# **Wrap Up**
+
+- Bun + TypeScript = high-speed real-time gateways  
+- Ideal for scalable microservices with dynamic routing  
+- Simpler, faster, and more maintainable than traditional tools
+
+**Thank you!**  
+
+🔗 [github.com/basemax](https://github.com/basemax)  
+📧 maxbasecode@gmail.com
