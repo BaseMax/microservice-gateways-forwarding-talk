@@ -183,6 +183,10 @@ From an architectural perspective, we can split the entire platform into 20 sub-
 
 Each of these 20 sub-projects runs independently and serves on a different HTTP port.
 
+---
+
+## Let's Create a Microservice Gateway
+
 Now, we need a central gateway — a program that initially receives all incoming requests from end users. It should analyze each request to determine which sub-project or microservice it belongs to and then forward the request accordingly.
 
 The gateway must not only forward the request to the appropriate sub-project but also handle the response by forwarding it back to the user.
