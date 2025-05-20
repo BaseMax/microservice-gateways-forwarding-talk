@@ -4,12 +4,12 @@ paginate: true
 backgroundColor: #000
 color: #fff
 colorPreset: dark
-footer: Tehran Lug 2/27/2025
+footer: Node.js Global Summit 2025
 ---
 
 ![bg left:30% 70%](logo.png)
 
-# **Magic of GitHub Actions: Automating Tasks**
+# **Next-Gen Microservice Gateways: Real-Time Forwarding with Bun**
 
 Seyyed Ali Mohammadiyeh (Max Base)
 
