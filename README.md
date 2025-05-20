@@ -1,31 +1,45 @@
-# "Next-Gen Microservice Gateways: Real-Time Forwarding with Bun"
+# Next-Gen Microservice Gateways: Real-Time Forwarding with Bun
 
 Explore how Bun and TypeScript can be combined to build a lightning-fast, real-time gateway that forwards incoming requests to microservices based on live context. Learn how this modern architecture improves performance, simplifies routing logic, and reduces latency in microservice communication.
 
-In today's microservice architectures, latency and scalability remain critical challenges, especially when handling live, dynamic routing of client requests. Traditional solutions like NGINX or Express-based proxies often introduce bottlenecks or complexity.
-This session presents a high-performance gateway built with Bun and TypeScript, designed to forward HTTP requests in real time to sub-projects or microservices based on context, headers, or routing rules. We’ll dive into how Bun’s speed and native TypeScript support make it ideal for this task, and demonstrate a working use case of live request forwarding across multiple services — with benchmarks, architecture, and lessons learned.
-Whether you're scaling a platform or designing your next startup backend, this session will show how to rethink your gateway layer using modern tools.
+## Overview
 
-1. Learn how to design and implement a real-time gateway using Bun + TypeScript that efficiently forwards requests to microservices with minimal latency.
+In today's microservice architectures, latency and scalability remain critical challenges — especially when handling dynamic, real-time routing of client requests. Traditional solutions like NGINX or Express-based proxies often introduce bottlenecks and unnecessary complexity.
 
-2. Discover how Bun can replace traditional reverse proxies and Node.js-based routers in microservice environments for better performance.
+This talk presents a high-performance gateway built with **Bun** and **TypeScript**, designed to forward HTTP requests in real-time to microservices or sub-projects based on context, headers, or routing rules. 
 
-## Build slides
+We’ll explore:
+- How Bun’s speed and native TypeScript support make it ideal for gateway development
+- A working example of live request forwarding across multiple services
+- Architecture diagrams, benchmarks, and lessons learned
 
-```
-in linux:
+Whether you're scaling a large platform or building the backend for your next startup, this session will show how to rethink your gateway layer using modern tools.
+
+## What You'll Learn
+
+1. How to design and implement a real-time gateway using Bun + TypeScript that forwards requests with minimal latency.
+2. Why Bun can replace traditional reverse proxies and Node.js-based routers for superior performance in microservice environments.
+
+## Build Slides
+
+To build the presentation slides:
+
+```bash
+# On Linux/macOS:
 bash b.sh
 
-or in windows:
+# On Windows (with Git Bash or WSL):
 ./b.sh
 ```
 
-Conference details:
+## Conference Details
 
-## Node.js Global Summit 25
+Node.js Global Summit 25
 
-### May 20 | Node.js Day
+May 20 | Node.js Day
 
-Copyright 2025, Max Base
+## License
+
+© 2025 Max Base
 
 License MIT
