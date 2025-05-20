@@ -7,7 +7,7 @@ colorPreset: dark
 footer: Node.js Global Summit 2025
 ---
 
-![bg left:30% 70%](logo.png)
+![bg left:30% 70%](poster.png)
 
 # **Next-Gen Microservice Gateways: Real-Time Forwarding with Bun**
 
