@@ -32,6 +32,9 @@ To build the presentation slides:
 # On Linux/macOS:
 bash b.sh
 
+# On Windows (cmd0
+b.bat
+
 # On Windows (with Git Bash or WSL):
 ./b.sh
 ```
