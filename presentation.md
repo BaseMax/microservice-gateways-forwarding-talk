@@ -41,7 +41,10 @@ Explore how **Bun** and **TypeScript** enable the creation of a high-performance
 - Why traditional reverse proxies (like NGINX or Express) fall short in dynamic routing scenarios.
 - How Bun offers minimal latency, simplified logic, and better scalability.
 
-This talk includes:  
+---
+
+## This talk includes:  
+
 ✅ Real-world architecture & benchmarks  
 ✅ Code examples  
 ✅ Lessons from production
@@ -75,6 +78,10 @@ To get started, run:
 // index.ts
 console.log("Hello via Bun!");
 ```
+
+----
+
+# Running your first Bun program
 
 ```bash
 $ bun run index.ts
@@ -126,7 +133,10 @@ const server = Bun.serve({
 });
 ```
 
-Example request object:
+---
+
+
+Example `req` (request) object:
 
 ```ts
 Request {
@@ -147,6 +157,8 @@ Key values to use:
 - `req.method`
 - `req.url`
 - `req.headers`
+
+---
 
 # **Parsed URL Object**
 
