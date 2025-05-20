@@ -219,6 +219,16 @@ The gateway must not only forward the request to the appropriate sub-project but
 
 ---
 
+# Coding
+
+Create a new Bun project:
+
+```
+bun init
+```
+
+---
+
 # **Wrap Up**
 
 - Bun + TypeScript = high-speed real-time gateways  
