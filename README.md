@@ -2,6 +2,10 @@
 
 Explore how Bun and TypeScript can be combined to build a lightning-fast, real-time gateway that forwards incoming requests to microservices based on live context. Learn how this modern architecture improves performance, simplifies routing logic, and reduces latency in microservice communication.
 
+[![Next-Gen Microservice Gateways: Real-Time Forwarding with Bun](poster.png)](https://basemax.github.io/microservice-gateways-forwarding-talk/presentation.html)
+
+**View slides:** https://basemax.github.io/microservice-gateways-forwarding-talk/presentation.html
+
 ## Overview
 
 In today's microservice architectures, latency and scalability remain critical challenges — especially when handling dynamic, real-time routing of client requests. Traditional solutions like NGINX or Express-based proxies often introduce bottlenecks and unnecessary complexity.
