@@ -10,119 +10,22 @@ Whether you're scaling a platform or designing your next startup backend, this s
 
 2. Discover how Bun can replace traditional reverse proxies and Node.js-based routers in microservice environments for better performance.
 
-## Getting start
+## Build slides
 
 ```
-$ bun init
+in linux:
+bash b.sh
 
-✓ Select a project template: Blank
-
- + .gitignore
- + index.ts
- + tsconfig.json (for editor autocomplete)
-
-To get started, run:
-
-    bun run index.ts
+or in windows:
+./b.sh
 ```
 
-```
-$ cat index.ts
-console.log("Hello via Bun!");
-```
+Conference details:
 
-```
-$ bun run index.ts
-Hello via Bun!
-```
+## Node.js Global Summit 25
 
-## Bun
+### May 20 | Node.js Day
 
-Why Bun?
-What is Bun?
+Copyright 2025, Max Base
 
-We are using Bun serve, not express, nestjs, etc.
-Because Bun is really fast and quick and can serve many more requests in one second.
-
-No need to include any libs, if you are using Bun, internally you can use network and serve library.
-
-Just use `Bun.serve`.
-
-One example:
-```
-const server = Bun.serve({
-  port: 9999,
-  fetch(req) {
-    return new Response("Not Found", { status: 404 });
-  },
-});
-```
-
-Everytime someone send a request to your IP and Port, fetch() function will be executed. you will receive the details of the request in `req` variable, feel free to explore more and console.log that variable.
-
-For more - If you want to get request url and details, you can use `new URL()` to parse `req.url`.
-
-```
-const server = Bun.serve({
-  port: 9999,
-  fetch(req) {
-    const ur = newl URL(req.url);
-    console.log(url);
-    return new Response("Not Found", { status: 404 });
-  },
-});
-```
-
-Output of `req` is like this:
-
-```
-Request (0 KB) {
-  method: "GET",
-  url: "http://localhost:9999/",
-  headers: Headers {
-    "host": "localhost:9999",
-    "connection": "keep-alive",
-    "cache-control": "max-age=0",
-    "upgrade-insecure-requests": "1",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-dest": "document",
-    "accept-encoding": "gzip, deflate, br, zstd",
-    "accept-language": "en-US,en;q=0.9,fa;q=0.8,it;q=0.7",
-    "cookie": "_pk_id.1.1fff=85d6240db28b6e81.1743525621.; PHPSESSID=p8arc5lojukmbb9hg27oqfbj7p",
-    "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
-    "sec-fetch-site": "none",
-    "sec-fetch-user": "?1",
-  }
-}
-```
-
-So main values are:
-
-- req.method
-- req.url
-- req.headers
-
-We can analyse and parse req.url into sub values, so in this case: Output of `newl URL(req.url)` is:
-
-```
-URL {
-  href: "http://localhost:9999/favicon.ico",
-  origin: "http://localhost:9999",
-  protocol: "http:",
-  username: "",
-  password: "",
-  host: "localhost:9999",
-  hostname: "localhost",
-  port: "9999",
-  pathname: "/favicon.ico",
-  hash: "",
-  search: "",
-  searchParams: URLSearchParams {},
-  toJSON: [Function: toJSON],
-  toString: [Function: toString],
-}
-```
+License MIT
