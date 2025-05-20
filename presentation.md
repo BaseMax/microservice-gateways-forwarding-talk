@@ -175,6 +175,46 @@ URL {
 
 ---
 
+## Let's Create a Microservice Gateway
+
+Imagine we are working on a large-scale project with over 800 RESTful API routes.
+
+From an architectural perspective, we can split the entire platform into 20 sub-projects.
+
+Each of these 20 sub-projects runs independently and serves on a different HTTP port.
+
+Now, we need a central gateway — a program that initially receives all incoming requests from end users. It should analyze each request to determine which sub-project or microservice it belongs to and then forward the request accordingly.
+
+The gateway must not only forward the request to the appropriate sub-project but also handle the response by forwarding it back to the user.
+
+---
+
+## Let's create a config structure
+
+
+```json
+{
+  "host": "0.0.0.0",
+  "port": 9999,
+  "services": [
+    {
+      "prefix": "/user/",
+      "host": "localhost",
+      "port": 8888
+    },
+    {
+      "path": "/my/login/",
+      "method": "POST",
+      "host": "localhost",
+      "port": 6666
+    },
+    ...
+  ]
+}
+```
+
+---
+
 # **Wrap Up**
 
 - Bun + TypeScript = high-speed real-time gateways  
